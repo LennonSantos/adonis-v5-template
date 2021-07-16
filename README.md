@@ -6,8 +6,8 @@ Template base para adonis v5
 
 #### Configuração do docker
 
-Postgres
+**Postgres**
 docker run -p 5432:5432 -e POSTGRES_PASSWORD=1234 postgres
 
-Redis
+**Redis**
 docker run --name redis -d -p 6379:6379 redis:latest
