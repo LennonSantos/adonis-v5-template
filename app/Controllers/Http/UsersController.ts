@@ -3,24 +3,24 @@ import User from 'App/Models/User'
 
 export default class UsersController {
   public async index() {
-    
+    return 'ok'
   }
 
-  public async auth ({ request, auth, response }) {
+  public async auth({ request, auth, response }) {
     const { email, password } = request.all()
 
     try {
       const token = await auth.use('api').attempt(email, password, {
-        expiresIn: '1mins'
+        expiresIn: '2days',
       })
 
       return token
     } catch {
-      return response.badRequest('Invalid credentials')
+      return response.badRequest('Email ou senha incorretos!')
     }
   }
 
-  public async create ({ request }) {
+  public async create({ request }) {
     const { email, password } = request.all()
 
     const user = await User.create({
