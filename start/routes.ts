@@ -20,12 +20,12 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ auth }) => {
-  await auth.use('api').authenticate()
-
-  return auth.user
-})
+Route.get('/', 'UsersController.index').middleware('auth')
 
 Route.post('users/auth', 'UsersController.auth')
 
 Route.post('users', 'UsersController.create')
+
+Route.resource('/campeonatos', 'CampeonatosController').apiOnly()
+
+Route.resource('/times', 'TimesController').apiOnly()

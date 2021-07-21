@@ -2,8 +2,8 @@
 import User from 'App/Models/User'
 
 export default class UsersController {
-  public async index() {
-    return 'ok'
+  public async index({ auth }) {
+    return auth.id
   }
 
   public async auth({ request, auth, response }) {
