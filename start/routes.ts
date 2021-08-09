@@ -29,3 +29,5 @@ Route.post('users', 'UsersController.create')
 Route.resource('/campeonatos', 'CampeonatosController').apiOnly()
 
 Route.resource('/times', 'TimesController').apiOnly()
+
+Route.resource('/rodadas', 'RodadasController').apiOnly()
